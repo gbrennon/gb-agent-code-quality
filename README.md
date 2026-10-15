@@ -1,4 +1,4 @@
-# Pi Hooks — Code Quality
+# GB Agent Code Quality
 
 Native TypeScript code-quality hook for the Pi coding agent.
 
