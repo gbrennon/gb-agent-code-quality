@@ -46,9 +46,11 @@ for agent in "${agents[@]}"; do
   "$bun_command" build "$root_dir/src/index.ts" \
     --target bun \
     --format esm \
-    --outfile "$tmp_dir/ai-toolkit-code-quality-hook.ts" >/dev/null
+    --outfile "$tmp_dir/gb-agent-code-quality-hook.ts" >/dev/null
   rm -f "$extension_dir/ai-toolkit-code-quality.ts"
-  cp "$tmp_dir/ai-toolkit-code-quality-hook.ts" \
-    "$extension_dir/ai-toolkit-code-quality-hook.ts"
-  printf 'installed code-quality hook for %s in %s\n' "$agent" "$extension_dir"
+  rm -f "$extension_dir/ai-toolkit-code-quality-hook.ts"
+  cp "$tmp_dir/gb-agent-code-quality-hook.ts" \
+    "$extension_dir/gb-agent-code-quality-hook.ts"
+  printf 'installed GB Agent Code Quality hook for %s in %s\n' "$agent" \
+    "$extension_dir"
 done
