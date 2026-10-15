@@ -62,7 +62,7 @@ test("default export registers the quality tool_result hook", () => {
 });
 
 test("quality hook passes cleanly when check-code-quality returns zero", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "pi-hooks-test-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "gb-agent-code-quality-test-"));
   const breaker = new CircuitBreakerStore(tempDir, 3);
   const extension = new QualityHooksExtension(new QualityHookService(breaker));
   const api = new FakeHookApi({ code: 0, stdout: "ok", stderr: "" });
@@ -82,7 +82,7 @@ test("quality hook passes cleanly when check-code-quality returns zero", async (
 });
 
 test("quality hook opens circuit breaker on threshold failure and resets on read", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "pi-hooks-breaker-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "gb-agent-code-quality-breaker-"));
   const breaker = new CircuitBreakerStore(tempDir, 2);
   const service = new QualityHookService(breaker);
   const failingApi = new FakeHookApi({ code: 1, stdout: "", stderr: "CCN > 5" });
