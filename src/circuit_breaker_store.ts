@@ -19,7 +19,7 @@ export class CircuitBreakerStore {
   private readonly threshold: number;
 
   public constructor(stateDir?: string, threshold: number = 3) {
-    const baseDir = stateDir ?? join(tmpdir(), "pi-hooks-circuit-breaker");
+    const baseDir = stateDir ?? join(tmpdir(), "gb-agent-code-quality-circuit-breaker");
     mkdirSync(baseDir, { recursive: true });
     this.stateFilePath = join(baseDir, "state.json");
     this.threshold = threshold;
